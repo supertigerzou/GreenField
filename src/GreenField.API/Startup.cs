@@ -1,4 +1,6 @@
-﻿using GreenField.API.App_Start;
+﻿using System.Diagnostics;
+using GreenField.API.App_Start;
+using GreenField.API.Middlewares;
 using Microsoft.Owin;
 using Owin;
 using System;
@@ -15,8 +17,13 @@ namespace GreenField.API
     {
         public void Configuration(IAppBuilder app)
         {
-            var config = new HttpConfiguration();
+            var logOptions = new LoggerOptions
+                {
+                    Log = (key, value) => Debug.WriteLine("{0}: {1}", key, value)
+                };
+            app.UseLogger(logOptions);
 
+            var config = new HttpConfiguration();
             WebApiConfig.Register(config);
             app.UseWebApi(config);
         }
