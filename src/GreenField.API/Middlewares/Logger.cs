@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using System.Collections.Generic;
+using Microsoft.Owin;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -7,6 +8,8 @@ namespace GreenField.API.Middlewares
 {
     public class LoggerOptions
     {
+        public IList<string> RequestKeys { get; set; }
+        public IList<string> ResponseKeys { get; set; }
         public Action<string, object> Log { get; set; }
     }
 
@@ -19,11 +22,19 @@ namespace GreenField.API.Middlewares
             this._options = options;
         }
 
-        public override Task Invoke(IOwinContext context)
+        public async override Task Invoke(IOwinContext context)
         {
-            _options.Log("owin.RequestPath", context.Environment["owin.RequestPath"]);
+            foreach (var key in _options.RequestKeys)
+            {
+                _options.Log(key, context.Environment[key]);
+            }
 
-            return Next.Invoke(context);
+            await Next.Invoke(context);
+
+            foreach (var key in _options.ResponseKeys)
+            {
+                _options.Log(key, context.Environment[key]);
+            }
         }
     }
 }
