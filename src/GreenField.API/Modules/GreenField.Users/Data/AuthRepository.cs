@@ -11,15 +11,15 @@ namespace GreenField.Users.Data
     public class AuthRepository : IDisposable
     {
         private readonly AuthContext _ctx;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public AuthRepository()
         {
             _ctx = new AuthContext();
-            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_ctx));
         }
 
-        public async Task<IdentityUser> FindUser(string userName, string password)
+        public async Task<ApplicationUser> FindUser(string userName, string password)
         {
             var user = await _userManager.FindAsync(userName, password);
             return user;
