@@ -172,4 +172,6 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
-GreenField.Web
+
+GreenField.Web/
+bower_components/

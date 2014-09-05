@@ -7,6 +7,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{DE69
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenField.Users", "GreenField.API\Modules\GreenField.Users\GreenField.Users.csproj", "{31808348-D9F2-400E-8AEA-DF2E38D70DCD}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GreenField.Web", "GreenField.Web\", "{0147CBA1-91D3-40DD-B011-873CFB1AF622}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/GreenField.Web"
+		Debug.AspNetCompiler.PhysicalPath = "GreenField.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\GreenField.Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/GreenField.Web"
+		Release.AspNetCompiler.PhysicalPath = "GreenField.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\GreenField.Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55854"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +41,10 @@ Global
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
