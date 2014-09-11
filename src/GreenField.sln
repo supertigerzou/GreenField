@@ -25,7 +25,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GreenField.Web", "GreenFiel
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55854"
+		VWDVirtualPath = "/"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenField.Books", "GreenField.API\Modules\GreenField.Books\GreenField.Books.csproj", "{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenField.Framework", "GreenField\GreenField.Framework.csproj", "{B832A512-BF4C-4CB5-839D-6BEA05EBE0A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,11 +50,20 @@ Global
 		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B832A512-BF4C-4CB5-839D-6BEA05EBE0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B832A512-BF4C-4CB5-839D-6BEA05EBE0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B832A512-BF4C-4CB5-839D-6BEA05EBE0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B832A512-BF4C-4CB5-839D-6BEA05EBE0A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD} = {DE697EF8-9A7F-49A1-BF33-A1625755457A}
+		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9} = {DE697EF8-9A7F-49A1-BF33-A1625755457A}
 	EndGlobalSection
 EndGlobal
