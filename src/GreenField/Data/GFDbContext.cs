@@ -7,16 +7,14 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GreenField.Framework.Data
 {
-    public class GFObjectContext : DbContext, IDbContext
+    public class GFDbContext : DbContext, IDbContext
     {
         #region Ctor
 
-        public GFObjectContext(string nameOrConnectionString)
+        public GFDbContext(string nameOrConnectionString)
             : base(nameOrConnectionString)
         {
             //((IObjectContextAdapter) this).ObjectContext.ContextOptions.LazyLoadingEnabled = true;
@@ -29,8 +27,6 @@ namespace GreenField.Framework.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //dynamically load all configuration
-            //System.Type configType = typeof(LanguageMap);   //any of your configuration classes here
-            //var typesToRegister = Assembly.GetAssembly(configType).GetTypes()
 
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
             .Where(type => !String.IsNullOrEmpty(type.Namespace))
@@ -40,10 +36,6 @@ namespace GreenField.Framework.Data
                 dynamic configurationInstance = Activator.CreateInstance(type);
                 modelBuilder.Configurations.Add(configurationInstance);
             }
-            //...or do it manually below. For example,
-            //modelBuilder.Configurations.Add(new LanguageMap());
-
-
 
             base.OnModelCreating(modelBuilder);
         }
@@ -66,11 +58,9 @@ namespace GreenField.Framework.Data
                 Set<TEntity>().Attach(entity);
                 return entity;
             }
-            else
-            {
-                //entity is already loaded.
-                return alreadyAttached;
-            }
+
+            //entity is already loaded.
+            return alreadyAttached;
         }
 
         #endregion
@@ -125,19 +115,19 @@ namespace GreenField.Framework.Data
                 }
             }
 
-            var result = this.Database.SqlQuery<TEntity>(commandText, parameters).ToList();
+            var result = Database.SqlQuery<TEntity>(commandText, parameters).ToList();
 
-            bool acd = this.Configuration.AutoDetectChangesEnabled;
+            bool acd = Configuration.AutoDetectChangesEnabled;
             try
             {
-                this.Configuration.AutoDetectChangesEnabled = false;
+                Configuration.AutoDetectChangesEnabled = false;
 
                 for (int i = 0; i < result.Count; i++)
                     result[i] = AttachEntityToContext(result[i]);
             }
             finally
             {
-                this.Configuration.AutoDetectChangesEnabled = acd;
+                Configuration.AutoDetectChangesEnabled = acd;
             }
 
             return result;
@@ -152,7 +142,7 @@ namespace GreenField.Framework.Data
         /// <returns>Result</returns>
         public IEnumerable<TElement> SqlQuery<TElement>(string sql, params object[] parameters)
         {
-            return this.Database.SqlQuery<TElement>(sql, parameters);
+            return Database.SqlQuery<TElement>(sql, parameters);
         }
 
         /// <summary>
@@ -176,7 +166,7 @@ namespace GreenField.Framework.Data
             var transactionalBehavior = doNotEnsureTransaction
                 ? TransactionalBehavior.DoNotEnsureTransaction
                 : TransactionalBehavior.EnsureTransaction;
-            var result = this.Database.ExecuteSqlCommand(transactionalBehavior, sql, parameters);
+            var result = Database.ExecuteSqlCommand(transactionalBehavior, sql, parameters);
 
             if (timeout.HasValue)
             {

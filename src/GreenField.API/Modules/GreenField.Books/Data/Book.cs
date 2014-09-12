@@ -1,6 +1,6 @@
 ﻿using GreenField.Framework.Data;
 
-namespace GreenField.Books.DomainModels
+namespace GreenField.Books.Data
 {
     public class Book : BaseEntity
     {

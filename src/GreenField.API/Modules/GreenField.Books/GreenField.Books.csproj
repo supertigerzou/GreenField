@@ -59,7 +59,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="DomainModels\Book.cs" />
+    <Compile Include="Data\Book.cs" />
+    <Compile Include="Data\BookContext.cs" />
+    <Compile Include="Migrations\201409121528201_Init.cs" />
+    <Compile Include="Migrations\201409121528201_Init.Designer.cs">
+      <DependentUpon>201409121528201_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookService.cs" />
   </ItemGroup>
@@ -73,7 +79,11 @@
       <Name>GreenField.Framework</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409121528201_Init.resx">
+      <DependentUpon>201409121528201_Init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

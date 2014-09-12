@@ -48,14 +48,12 @@
   <ItemGroup>
     <Compile Include="Data\BaseEntity.cs" />
     <Compile Include="Data\EfRepository.cs" />
-    <Compile Include="Data\GFObjectContext.cs" />
+    <Compile Include="Data\GFDbContext.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

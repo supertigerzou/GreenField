@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using GreenField.Books.DomainModels;
+using GreenField.Books.Data;
 using GreenField.Framework.Data;
 
 namespace GreenField.Books.Services
@@ -11,7 +11,7 @@ namespace GreenField.Books.Services
 
         public BookService()
         {
-            this._bookRepository = new EfRepository<Book>(new GFObjectContext("GFContext"));
+            _bookRepository = new EfRepository<Book>(new GFDbContext("GFContext"));
         }
 
         public List<Book> GetAll()
