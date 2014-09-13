@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using GreenField.Framework.Data.DomainModels;
+using System.Linq;
 
 namespace GreenField.Framework.Data
 {

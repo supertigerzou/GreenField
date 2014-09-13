@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenField.Framework.Data.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -10,7 +11,7 @@ using System.Reflection;
 
 namespace GreenField.Framework.Data
 {
-    public class GFDbContext : DbContext, IDbContext
+    public class GFDbContext : AuthContext, IDbContext
     {
         #region Ctor
 
@@ -26,6 +27,8 @@ namespace GreenField.Framework.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             //dynamically load all configuration
 
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
@@ -37,7 +40,6 @@ namespace GreenField.Framework.Data
                 modelBuilder.Configurations.Add(configurationInstance);
             }
 
-            base.OnModelCreating(modelBuilder);
         }
 
 

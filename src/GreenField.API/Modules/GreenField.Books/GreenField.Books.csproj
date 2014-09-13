@@ -36,6 +36,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -59,8 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BooksController.cs" />
-    <Compile Include="Data\Book.cs" />
+    <Compile Include="Data\DomainModels\Author.cs" />
+    <Compile Include="Data\DomainModels\Book.cs" />
     <Compile Include="Data\BookContext.cs" />
+    <Compile Include="Data\DomainModels\AuthorMap.cs" />
+    <Compile Include="Data\DomainModels\BookMap.cs" />
     <Compile Include="Migrations\201409121528201_Init.cs" />
     <Compile Include="Migrations\201409121528201_Init.Designer.cs">
       <DependentUpon>201409121528201_Init.cs</DependentUpon>

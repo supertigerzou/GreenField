@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenField.Framework.Data.DomainModels;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Linq;

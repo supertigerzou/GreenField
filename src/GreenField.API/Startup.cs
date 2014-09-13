@@ -12,6 +12,7 @@ using System.Web;
 using System.Web.Http;
 using Microsoft.Owin.Security.OAuth;
 using GreenField.Users.Data;
+using GreenField.Framework.Data;
 
 //[assembly: OwinStartup(typeof(GreenField.API.Startup))]
 

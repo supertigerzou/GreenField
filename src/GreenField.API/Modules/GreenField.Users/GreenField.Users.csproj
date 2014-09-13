@@ -52,27 +52,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ApplicationUser.cs" />
-    <Compile Include="Data\AuthContext.cs" />
     <Compile Include="Data\AuthRepository.cs" />
-    <Compile Include="Migrations\201408290703007_Init.cs" />
-    <Compile Include="Migrations\201408290703007_Init.Designer.cs">
-      <DependentUpon>201408290703007_Init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Services\MembershipService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201408290703007_Init.resx">
-      <DependentUpon>201408290703007_Init.cs</DependentUpon>
-    </EmbeddedResource>
+    <Content Include="Migrations\migrationCommands.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Migrations\migrationCommands.txt" />
+    <ProjectReference Include="..\..\..\GreenField\GreenField.Framework.csproj">
+      <Project>{b832a512-bf4c-4cb5-839d-6bea05ebe0a9}</Project>
+      <Name>GreenField.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

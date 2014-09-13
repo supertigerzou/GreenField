@@ -1,4 +1,5 @@
-using GreenField.Users.Data;
+using GreenField.Framework.Data;
+using GreenField.Framework.Data.DomainModels;
 
 namespace GreenField.Users.Migrations
 {

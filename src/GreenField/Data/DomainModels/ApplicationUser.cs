@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GreenField.Users.Data
+namespace GreenField.Framework.Data.DomainModels
 {
     public class ApplicationUser : IdentityUser
     {

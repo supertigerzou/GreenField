@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data;
+using System.Data.Entity;
 
 namespace GreenField.Books.Data
 {
@@ -17,5 +13,7 @@ namespace GreenField.Books.Data
         }
 
         public virtual IDbSet<Book> Books { get; set; }
+
+        public virtual IDbSet<Author> Authors { get; set; }
     }
 }
