@@ -18,39 +18,65 @@ namespace GreenField.Books.Migrations
             //  This method will be called after migrating to the latest version.
 
             //  Use the DbSet<T>.AddOrUpdate() helper extension method to avoid creating duplicate seed data.
-            var userVictor = new ApplicationUser
-            {
-                UserName = "victor.zou",
-                PasswordHash = "ADWj64qPNVxOr988AtL7WKaHKkOYSP9LFWUQniZIRxnXFaNJHELTF4kp+FtTnrYe6Q=="
-            };
+            var loginUserVictor = new ApplicationUser
+                {
+                    UserName = "victor.zou",
+                    PasswordHash = "ADWj64qPNVxOr988AtL7WKaHKkOYSP9LFWUQniZIRxnXFaNJHELTF4kp+FtTnrYe6Q=="
+                };
+            var loginUserUnique = new ApplicationUser
+                {
+                    UserName = "unique.lin",
+                    PasswordHash = "ADWj64qPNVxOr988AtL7WKaHKkOYSP9LFWUQniZIRxnXFaNJHELTF4kp+FtTnrYe6Q=="
+                };
 
             context.Users.AddOrUpdate(
-              p => p.UserName,
-              userVictor,
-              new ApplicationUser
-              {
-                  UserName = "unique.lin",
-                  PasswordHash = "ADWj64qPNVxOr988AtL7WKaHKkOYSP9LFWUQniZIRxnXFaNJHELTF4kp+FtTnrYe6Q=="
-              }
-            );
-
+                p => p.UserName,
+                loginUserVictor,
+                loginUserUnique
+                );
             context.SaveChanges();
+
+            var authorRhondaByrne = new Author
+                {
+                    FirstName = "Rhonda",
+                    LastName = "Byrne"
+                };
+            var authorJidduKrishnamurti = new Author
+                {
+                    FirstName = "Jiddu",
+                    LastName = "Jiddu Krishnamurti"
+                };
+            var authorVictorZou = new Author
+                {
+                    FirstName = "Victor",
+                    LastName = "Zou",
+                    LoginUser = loginUserVictor
+                };
 
             context.Authors.AddOrUpdate(
                 p => p.Id,
-                new Author
+                authorRhondaByrne,
+                authorJidduKrishnamurti,
+                authorVictorZou
+                );
+            context.SaveChanges();
+
+            var bookSecret = new Book
                 {
-                    FirstName = "victor",
-                    LastName = "zou",
-                    ModifiedDate = DateTime.Now,
-                    LoginUser = userVictor
-                },
-                new Author
+                    Author = authorRhondaByrne,
+                    Name = "The Secret"
+                };
+            var bookFreedomFromTheKnown = new Book
                 {
-                    FirstName = "unique",
-                    LastName = "lin",
-                    ModifiedDate = DateTime.Now
-                });
+                    Author = authorJidduKrishnamurti,
+                    Name = "Freedom from the Known"
+                };
+
+            context.Books.AddOrUpdate(
+                b => b.Id,
+                bookSecret,
+                bookFreedomFromTheKnown
+                );
         }
     }
 }

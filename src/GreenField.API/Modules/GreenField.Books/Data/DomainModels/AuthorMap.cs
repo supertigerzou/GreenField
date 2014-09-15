@@ -9,8 +9,7 @@ namespace GreenField.Books.Data.DomainModels
             this.ToTable("Author");
             this.HasKey(b => b.Id);
 
-            this.HasOptional(a => a.LoginUserId);
-
+            this.HasOptional(a => a.LoginUser);
         }
     }
 }

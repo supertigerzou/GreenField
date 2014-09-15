@@ -70,9 +70,9 @@
     <Compile Include="Data\BookContext.cs" />
     <Compile Include="Data\DomainModels\AuthorMap.cs" />
     <Compile Include="Data\DomainModels\BookMap.cs" />
-    <Compile Include="Migrations\201409121528201_Init.cs" />
-    <Compile Include="Migrations\201409121528201_Init.Designer.cs">
-      <DependentUpon>201409121528201_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201409150918392_Init.cs" />
+    <Compile Include="Migrations\201409150918392_Init.Designer.cs">
+      <DependentUpon>201409150918392_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,8 +89,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409121528201_Init.resx">
-      <DependentUpon>201409121528201_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409150918392_Init.resx">
+      <DependentUpon>201409150918392_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
