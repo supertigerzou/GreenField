@@ -1,8 +1,8 @@
-using System;
-using System.Linq;
+using System.IO;
 using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data.DomainModels;
 using System.Data.Entity.Migrations;
+using GreenField.Framework.Helpers;
 
 namespace GreenField.Books.Migrations
 {
@@ -76,6 +76,50 @@ namespace GreenField.Books.Migrations
                 b => b.Id,
                 bookSecret,
                 bookFreedomFromTheKnown
+                );
+            context.SaveChanges();
+
+            const string sampleImagePathBase = "~/Migrations/Images/";
+            var pictureSecret1 = new BookPicture
+                {
+                    LargePhotoFileName = "secret_1_large.jpg",
+                    LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_1_large.jpg")),
+                    ThumbnailPhotoFileName = "secret_1_small.jpg",
+                    ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_1_small.jpg"))
+                };
+            var pictureSecret2 = new BookPicture
+            {
+                LargePhotoFileName = "secret_2_large.jpg",
+                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_2_large.jpg")),
+                ThumbnailPhotoFileName = "secret_2_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_2_small.jpg"))
+            };
+            var pictureSecret3 = new BookPicture
+            {
+                LargePhotoFileName = "secret_3_large.jpg",
+                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_large.jpg")),
+                ThumbnailPhotoFileName = "secret_3_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_small.jpg"))
+            };
+
+            context.BookPictures.AddOrUpdate(
+                bp => bp.Id,
+                pictureSecret1,
+                pictureSecret2,
+                pictureSecret3
+                );
+            context.SaveChanges();
+
+            var bookPictureMapping1 = new BookBookPicture
+                {
+                    Entity = bookSecret,
+                    EntityPicture = pictureSecret1,
+                    Primary = true
+                };
+
+            context.BookBookPictures.AddOrUpdate(
+                bbp => new { bbp.EntityId, bbp.EntityPictureId },
+                bookPictureMapping1
                 );
         }
     }

@@ -69,10 +69,14 @@
     <Compile Include="Data\DomainModels\Book.cs" />
     <Compile Include="Data\BookContext.cs" />
     <Compile Include="Data\DomainModels\AuthorMap.cs" />
+    <Compile Include="Data\DomainModels\BookBookPicture.cs" />
+    <Compile Include="Data\DomainModels\BookBookPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookMap.cs" />
-    <Compile Include="Migrations\201409150918392_Init.cs" />
-    <Compile Include="Migrations\201409150918392_Init.Designer.cs">
-      <DependentUpon>201409150918392_Init.cs</DependentUpon>
+    <Compile Include="Data\DomainModels\BookPicture.cs" />
+    <Compile Include="Data\DomainModels\BookPictureMap.cs" />
+    <Compile Include="Migrations\201409160713571_Init.cs" />
+    <Compile Include="Migrations\201409160713571_Init.Designer.cs">
+      <DependentUpon>201409160713571_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,9 +93,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409150918392_Init.resx">
-      <DependentUpon>201409150918392_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409160713571_Init.resx">
+      <DependentUpon>201409160713571_Init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\Images\secret_1_large.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\secret_1_small.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\secret_2_large.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\secret_2_small.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\secret_3_large.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\secret_3_small.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

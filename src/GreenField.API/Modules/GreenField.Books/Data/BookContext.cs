@@ -1,10 +1,10 @@
-﻿using System;
+﻿using GreenField.Books.Data.DomainModels;
+using GreenField.Framework.Data;
+using System;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using GreenField.Books.Data.DomainModels;
-using GreenField.Framework.Data;
-using System.Data.Entity;
 
 namespace GreenField.Books.Data
 {
@@ -19,6 +19,10 @@ namespace GreenField.Books.Data
         public virtual IDbSet<Book> Books { get; set; }
 
         public virtual IDbSet<Author> Authors { get; set; }
+
+        public virtual IDbSet<BookPicture> BookPictures { get; set; }
+
+        public virtual IDbSet<BookBookPicture> BookBookPictures { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
