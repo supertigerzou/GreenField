@@ -1,8 +1,8 @@
-using System.IO;
 using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data.DomainModels;
-using System.Data.Entity.Migrations;
 using GreenField.Framework.Helpers;
+using System.Data.Entity.Migrations;
+using System.IO;
 
 namespace GreenField.Books.Migrations
 {
@@ -101,12 +101,28 @@ namespace GreenField.Books.Migrations
                 ThumbnailPhotoFileName = "secret_3_small.jpg",
                 ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_small.jpg"))
             };
+            var pictureRhondaByrne1 = new BookPicture
+            {
+                LargePhotoFileName = "RhondaByrne_1_large.jpg",
+                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_large.jpg")),
+                ThumbnailPhotoFileName = "RhondaByrne_1_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_small.jpg"))
+            };
+            var pictureRhondaByrne2 = new BookPicture
+            {
+                LargePhotoFileName = "RhondaByrne_2_large.jpg",
+                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_large.jpg")),
+                ThumbnailPhotoFileName = "RhondaByrne_2_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_small.jpg"))
+            };
 
             context.BookPictures.AddOrUpdate(
                 bp => bp.Id,
                 pictureSecret1,
                 pictureSecret2,
-                pictureSecret3
+                pictureSecret3,
+                pictureRhondaByrne1,
+                pictureRhondaByrne2
                 );
             context.SaveChanges();
 
