@@ -2,9 +2,9 @@
 
 namespace GreenField.Books.Data.DomainModels
 {
-    public class BookPictureMap : EntityTypeConfiguration<BookPicture>
+    public class EntityPictureMap : EntityTypeConfiguration<EntityPicture>
     {
-        public BookPictureMap()
+        public EntityPictureMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);

@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace GreenField.Books.Data.DomainModels
 {
-    public class BookBookPictureMap : EntityTypeConfiguration<BookBookPicture>
+    public class EntityEntityPictureMap : EntityTypeConfiguration<EntityEntityPicture>
     {
-        public BookBookPictureMap()
+        public EntityEntityPictureMap()
         {
             // Primary Key
             this.HasKey(t => new { t.EntityId, t.EntityPictureId });
@@ -26,10 +26,10 @@ namespace GreenField.Books.Data.DomainModels
 
             // Relationships
             this.HasRequired(t => t.Entity)
-                .WithMany(t => t.BookBookPictures)
+                .WithMany(t => t.EntityEntityPictures)
                 .HasForeignKey(d => d.EntityId);
             this.HasRequired(t => t.EntityPicture)
-                .WithMany(t => t.BookBookPictures)
+                .WithMany(t => t.EntityEntityPictures)
                 .HasForeignKey(d => d.EntityPictureId);
         }
     }

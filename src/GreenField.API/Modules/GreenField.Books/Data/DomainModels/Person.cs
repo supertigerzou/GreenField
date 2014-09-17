@@ -1,12 +1,10 @@
 ﻿
-namespace GreenField.Framework.Data.DomainModels
+using GreenField.Framework.Data.DomainModels;
+
+namespace GreenField.Books.Data.DomainModels
 {
     public class Person : BaseEntity
     {
-        public Person()
-        {
-        }
-
         public string PersonType { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

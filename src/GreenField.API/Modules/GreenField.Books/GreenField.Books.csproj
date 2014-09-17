@@ -69,14 +69,18 @@
     <Compile Include="Data\DomainModels\Book.cs" />
     <Compile Include="Data\BookContext.cs" />
     <Compile Include="Data\DomainModels\AuthorMap.cs" />
-    <Compile Include="Data\DomainModels\BookBookPicture.cs" />
-    <Compile Include="Data\DomainModels\BookBookPictureMap.cs" />
+    <Compile Include="Data\DomainModels\BookEntityPicture.cs" />
+    <Compile Include="Data\DomainModels\AuthorEntityPicture.cs" />
+    <Compile Include="Data\DomainModels\AuthorEntityPictureMap.cs" />
+    <Compile Include="Data\DomainModels\EntityEntityPicture.cs" />
+    <Compile Include="Data\DomainModels\BookEntityPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookMap.cs" />
-    <Compile Include="Data\DomainModels\BookPicture.cs" />
-    <Compile Include="Data\DomainModels\BookPictureMap.cs" />
-    <Compile Include="Migrations\201409160713571_Init.cs" />
-    <Compile Include="Migrations\201409160713571_Init.Designer.cs">
-      <DependentUpon>201409160713571_Init.cs</DependentUpon>
+    <Compile Include="Data\DomainModels\EntityPicture.cs" />
+    <Compile Include="Data\DomainModels\EntityPictureMap.cs" />
+    <Compile Include="Data\DomainModels\Person.cs" />
+    <Compile Include="Migrations\201409171513547_Init.cs" />
+    <Compile Include="Migrations\201409171513547_Init.Designer.cs">
+      <DependentUpon>201409171513547_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,15 +97,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409160713571_Init.resx">
-      <DependentUpon>201409160713571_Init.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Migrations\Images\RhondaByrne_1_large.jpg" />
-    <Content Include="Migrations\Images\RhondaByrne_1_small.jpg" />
-    <Content Include="Migrations\Images\RhondaByrne_2_large.jpg" />
-    <Content Include="Migrations\Images\RhondaByrne_2_small.jpg" />
+    <Content Include="Migrations\Images\RhondaByrne_1_large.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\RhondaByrne_1_small.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\RhondaByrne_2_large.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Migrations\Images\RhondaByrne_2_small.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Migrations\Images\secret_1_large.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -120,6 +127,11 @@
     <Content Include="Migrations\Images\secret_3_small.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409171513547_Init.resx">
+      <DependentUpon>201409171513547_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

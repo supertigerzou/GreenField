@@ -80,43 +80,43 @@ namespace GreenField.Books.Migrations
             context.SaveChanges();
 
             const string sampleImagePathBase = "~/Migrations/Images/";
-            var pictureSecret1 = new BookPicture
+            var pictureSecret1 = new EntityPicture
                 {
                     LargePhotoFileName = "secret_1_large.jpg",
                     LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_1_large.jpg")),
                     ThumbnailPhotoFileName = "secret_1_small.jpg",
                     ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_1_small.jpg"))
                 };
-            var pictureSecret2 = new BookPicture
+            var pictureSecret2 = new EntityPicture
             {
                 LargePhotoFileName = "secret_2_large.jpg",
                 LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_2_large.jpg")),
                 ThumbnailPhotoFileName = "secret_2_small.jpg",
                 ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_2_small.jpg"))
             };
-            var pictureSecret3 = new BookPicture
+            var pictureSecret3 = new EntityPicture
             {
                 LargePhotoFileName = "secret_3_large.jpg",
                 LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_large.jpg")),
                 ThumbnailPhotoFileName = "secret_3_small.jpg",
                 ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_small.jpg"))
             };
-            var pictureRhondaByrne1 = new BookPicture
+            
+            var pictureRhondaByrne1 = new EntityPicture
             {
                 LargePhotoFileName = "RhondaByrne_1_large.jpg",
                 LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_large.jpg")),
                 ThumbnailPhotoFileName = "RhondaByrne_1_small.jpg",
                 ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_small.jpg"))
             };
-            var pictureRhondaByrne2 = new BookPicture
+            var pictureRhondaByrne2 = new EntityPicture
             {
                 LargePhotoFileName = "RhondaByrne_2_large.jpg",
                 LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_large.jpg")),
                 ThumbnailPhotoFileName = "RhondaByrne_2_small.jpg",
                 ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_small.jpg"))
             };
-
-            context.BookPictures.AddOrUpdate(
+            context.EntityPictures.AddOrUpdate(
                 bp => bp.Id,
                 pictureSecret1,
                 pictureSecret2,
@@ -126,17 +126,49 @@ namespace GreenField.Books.Migrations
                 );
             context.SaveChanges();
 
-            var bookPictureMapping1 = new BookBookPicture
+            var bookPictureMapping1 = new BookEntityPicture
                 {
                     Entity = bookSecret,
                     EntityPicture = pictureSecret1,
                     Primary = true
                 };
+            var bookPictureMapping2 = new BookEntityPicture
+            {
+                Entity = bookSecret,
+                EntityPicture = pictureSecret2,
+                Primary = false
+            };
+            var bookPictureMapping3 = new BookEntityPicture
+            {
+                Entity = bookSecret,
+                EntityPicture = pictureSecret3,
+                Primary = false
+            };
 
-            context.BookBookPictures.AddOrUpdate(
+            context.BookEntityPictures.AddOrUpdate(
                 bbp => new { bbp.EntityId, bbp.EntityPictureId },
-                bookPictureMapping1
+                bookPictureMapping1, bookPictureMapping2, bookPictureMapping3
                 );
+            context.SaveChanges();
+
+            var authorPictureMapping1 = new AuthorEntityPicture
+            {
+                Entity = authorRhondaByrne,
+                EntityPicture = pictureRhondaByrne1,
+                Primary = true
+            };
+            var authorPictureMapping2 = new AuthorEntityPicture
+            {
+                Entity = authorRhondaByrne,
+                EntityPicture = pictureRhondaByrne2,
+                Primary = false
+            };
+
+            context.AuthorEntityPictures.AddOrUpdate(
+                bbp => new { bbp.EntityId, bbp.EntityPictureId },
+                authorPictureMapping1, authorPictureMapping2
+                );
+            
         }
     }
 }

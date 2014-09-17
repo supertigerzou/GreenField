@@ -20,9 +20,11 @@ namespace GreenField.Books.Data
 
         public virtual IDbSet<Author> Authors { get; set; }
 
-        public virtual IDbSet<BookPicture> BookPictures { get; set; }
+        public virtual IDbSet<EntityPicture> EntityPictures { get; set; }
+        
+        public virtual IDbSet<BookEntityPicture> BookEntityPictures { get; set; }
 
-        public virtual IDbSet<BookBookPicture> BookBookPictures { get; set; }
+        public virtual IDbSet<AuthorEntityPicture> AuthorEntityPictures { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

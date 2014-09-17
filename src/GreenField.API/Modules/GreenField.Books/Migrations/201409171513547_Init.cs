@@ -8,6 +8,21 @@ namespace GreenField.Books.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.AuthorEntityPicture",
+                c => new
+                    {
+                        AhthorId = c.Int(nullable: false),
+                        EntityPictureId = c.Int(nullable: false),
+                        Primary = c.Boolean(nullable: false),
+                        ModifiedDate = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.AhthorId, t.EntityPictureId })
+                .ForeignKey("dbo.Author", t => t.AhthorId, cascadeDelete: true)
+                .ForeignKey("dbo.EntityPicture", t => t.EntityPictureId, cascadeDelete: true)
+                .Index(t => t.AhthorId)
+                .Index(t => t.EntityPictureId);
+            
+            CreateTable(
                 "dbo.Author",
                 c => new
                     {
@@ -36,18 +51,18 @@ namespace GreenField.Books.Migrations
                 .Index(t => t.AutherId);
             
             CreateTable(
-                "dbo.EntityEntityPicture",
+                "dbo.BookEntityPicture",
                 c => new
                     {
-                        EntityId = c.Int(nullable: false),
+                        BookId = c.Int(nullable: false),
                         EntityPictureId = c.Int(nullable: false),
                         Primary = c.Boolean(nullable: false),
                         ModifiedDate = c.DateTime(nullable: false),
                     })
-                .PrimaryKey(t => new { t.EntityId, t.EntityPictureId })
-                .ForeignKey("dbo.Book", t => t.EntityId, cascadeDelete: true)
+                .PrimaryKey(t => new { t.BookId, t.EntityPictureId })
+                .ForeignKey("dbo.Book", t => t.BookId, cascadeDelete: true)
                 .ForeignKey("dbo.EntityPicture", t => t.EntityPictureId, cascadeDelete: true)
-                .Index(t => t.EntityId)
+                .Index(t => t.BookId)
                 .Index(t => t.EntityPictureId);
             
             CreateTable(
@@ -136,12 +151,14 @@ namespace GreenField.Books.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.AuthorEntityPicture", "EntityPictureId", "dbo.EntityPicture");
+            DropForeignKey("dbo.AuthorEntityPicture", "AhthorId", "dbo.Author");
             DropForeignKey("dbo.Author", "LoginUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.EntityEntityPicture", "EntityPictureId", "dbo.EntityPicture");
-            DropForeignKey("dbo.EntityEntityPicture", "EntityId", "dbo.Book");
+            DropForeignKey("dbo.BookEntityPicture", "EntityPictureId", "dbo.EntityPicture");
+            DropForeignKey("dbo.BookEntityPicture", "BookId", "dbo.Book");
             DropForeignKey("dbo.Book", "AutherId", "dbo.Author");
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
@@ -149,19 +166,22 @@ namespace GreenField.Books.Migrations
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.EntityEntityPicture", new[] { "EntityPictureId" });
-            DropIndex("dbo.EntityEntityPicture", new[] { "EntityId" });
+            DropIndex("dbo.BookEntityPicture", new[] { "EntityPictureId" });
+            DropIndex("dbo.BookEntityPicture", new[] { "BookId" });
             DropIndex("dbo.Book", new[] { "AutherId" });
             DropIndex("dbo.Author", new[] { "LoginUser_Id" });
+            DropIndex("dbo.AuthorEntityPicture", new[] { "EntityPictureId" });
+            DropIndex("dbo.AuthorEntityPicture", new[] { "AhthorId" });
             DropTable("dbo.AspNetRoles");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.EntityPicture");
-            DropTable("dbo.EntityEntityPicture");
+            DropTable("dbo.BookEntityPicture");
             DropTable("dbo.Book");
             DropTable("dbo.Author");
+            DropTable("dbo.AuthorEntityPicture");
         }
     }
 }

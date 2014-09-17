@@ -56,9 +56,6 @@
     <Compile Include="Data\DomainModels\ApplicationUser.cs" />
     <Compile Include="Data\AuthContext.cs" />
     <Compile Include="Data\DomainModels\BaseEntity.cs" />
-    <Compile Include="Data\DomainModels\EntityEntityPicture.cs" />
-    <Compile Include="Data\DomainModels\EntityPicture.cs" />
-    <Compile Include="Data\DomainModels\Person.cs" />
     <Compile Include="Data\EfRepository.cs" />
     <Compile Include="Data\GFDbContext.cs" />
     <Compile Include="Data\IDbContext.cs" />
