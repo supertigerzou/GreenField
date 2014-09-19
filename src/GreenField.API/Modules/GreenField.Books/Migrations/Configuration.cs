@@ -6,7 +6,7 @@ using System.IO;
 
 namespace GreenField.Books.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<Data.BookContext>
+    public sealed class Configuration : DbMigrationsConfiguration<Data.BookContext>
     {
         public Configuration()
         {

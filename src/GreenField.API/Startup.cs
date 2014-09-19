@@ -1,18 +1,12 @@
-﻿using System.Data.Entity;
-using System.Diagnostics;
-using GreenField.API.App_Start;
+﻿using GreenField.API.App_Start;
 using GreenField.API.Middlewares;
 using GreenField.API.Providers;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Diagnostics;
 using System.Web.Http;
-using Microsoft.Owin.Security.OAuth;
-using GreenField.Users.Data;
-using GreenField.Framework.Data;
 
 //[assembly: OwinStartup(typeof(GreenField.API.Startup))]
 
@@ -34,9 +28,10 @@ namespace GreenField.API
 
             var config = new HttpConfiguration();
             WebApiConfig.Register(config);
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
 
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, Users.Migrations.Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookContext, Configuration>());
         }
 
         private void ConfigureOAuth(IAppBuilder app)
