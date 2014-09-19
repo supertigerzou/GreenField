@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using GreenField.Books.Data;
+﻿using GreenField.Books.Data;
 using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GreenField.Books.Services
 {
@@ -18,14 +17,7 @@ namespace GreenField.Books.Services
 
         public List<Book> GetAll()
         {
-            try
-            {
-                return _bookRepository.Table.ToList();
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            return _bookRepository.Table.ToList();
         }
     }
 }

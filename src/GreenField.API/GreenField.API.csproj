@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="AppBuilderExtensions.cs" />
     <Compile Include="App_Start\CustomAssemblyResolver.cs" />
+    <Compile Include="App_Start\LoggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Middlewares\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,13 +18,7 @@ namespace GreenField.API
         {
             ConfigureOAuth(app);
 
-            var logOptions = new LoggerOptions
-                {
-                    Log = (key, value) => Debug.WriteLine("{0}: {1}", key, value),
-                    RequestKeys = new[] { "owin.RequestPath", "owin.RequestMethod" },
-                    ResponseKeys = new[] { "owin.ResponseStatusCode" }
-                };
-            app.UseLogger(logOptions);
+            app.UseLogger(LoggerConfig.Init());
 
             var config = new HttpConfiguration();
             WebApiConfig.Register(config);
