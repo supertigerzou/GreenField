@@ -12,7 +12,7 @@ namespace GreenField.Books.Services
 
         public BookService()
         {
-            _bookRepository = new EfRepository<Book>(new GFDbContext("GFContext"));
+            _bookRepository = new EfRepository<Book>(new BookContext());
         }
 
         public List<Book> GetAll()

@@ -1,6 +1,8 @@
 ﻿using GreenField.Books.Data.DomainModels;
-using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using GreenField.Books.Services;
+using GreenField.Books.ViewModels;
 
 namespace GreenField.Books.Controllers
 {
@@ -10,12 +12,11 @@ namespace GreenField.Books.Controllers
         [Route("")]
         public IHttpActionResult Get()
         {
-            return Ok(new List<Book>{new Book
+            return Ok(new BookService().GetAll().Select(book => new BookViewModel
                 {
-                    Name = "test1",
-                    Id = 1,
-                    AutherId = 1
-                }});
+                    Name = book.Name,
+                    Auther = book.Author.FirstName + " " + book.Author.LastName
+                }));
         }
     }
 }

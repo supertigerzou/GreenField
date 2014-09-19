@@ -15,6 +15,6 @@ namespace GreenField.Books.Data.DomainModels
         }
         public string Name { get; set; }
         public int AutherId { get; set; }
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
     }
 }
