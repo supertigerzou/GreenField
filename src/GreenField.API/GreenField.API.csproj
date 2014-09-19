@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppBuilderExtensions.cs" />
+    <Compile Include="App_Start\CustomAssemblyResolver.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Middlewares\Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,6 +134,10 @@
     <ProjectReference Include="..\GreenField\GreenField.Framework.csproj">
       <Project>{b832a512-bf4c-4cb5-839d-6bea05ebe0a9}</Project>
       <Name>GreenField.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="Modules\GreenField.Books\GreenField.Books.csproj">
+      <Project>{ba7c1efa-0b22-48fb-87c8-5a9dbba6c7b9}</Project>
+      <Name>GreenField.Books</Name>
     </ProjectReference>
     <ProjectReference Include="Modules\GreenField.Users\GreenField.Users.csproj">
       <Project>{31808348-D9F2-400E-8AEA-DF2E38D70DCD}</Project>

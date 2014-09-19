@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GreenField.Books.Data.DomainModels
+namespace GreenField.Framework.Data.DomainModels
 {
     public partial class EntityEntityPicture<TEntity, TEntityPicture> 
     {

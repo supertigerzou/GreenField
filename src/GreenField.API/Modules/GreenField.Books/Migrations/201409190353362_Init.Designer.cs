@@ -13,7 +13,7 @@ namespace GreenField.Books.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201409171513547_Init"; }
+            get { return "201409190353362_Init"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 
-namespace GreenField.Books.Data.DomainModels
+namespace GreenField.Framework.Data.DomainModels
 {
     public class EntityPictureMap : EntityTypeConfiguration<EntityPicture>
     {

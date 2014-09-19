@@ -46,6 +46,16 @@ namespace GreenField.Books.Migrations
                     FirstName = "Jiddu",
                     LastName = "Jiddu Krishnamurti"
                 };
+            var authorYuanJieZheng = new Author
+            {
+                FirstName = "YuanJie",
+                LastName = "Zheng"
+            };
+            var authorScottOdell = new Author
+            {
+                FirstName = "Scott",
+                LastName = "O'Dell"
+            };
             var authorVictorZou = new Author
                 {
                     FirstName = "Victor",
@@ -57,25 +67,92 @@ namespace GreenField.Books.Migrations
                 p => p.Id,
                 authorRhondaByrne,
                 authorJidduKrishnamurti,
+                authorYuanJieZheng,
+                authorScottOdell,
                 authorVictorZou
                 );
             context.SaveChanges();
 
+            // http://www.amazon.com/Secret-Rhonda-Byrne/dp/1582701709
             var bookSecret = new Book
                 {
                     Author = authorRhondaByrne,
                     Name = "The Secret"
                 };
+            // http://www.amazon.com/Freedom-Known-Jiddu-Krishnamurti/dp/0060648082
             var bookFreedomFromTheKnown = new Book
                 {
                     Author = authorJidduKrishnamurti,
                     Name = "Freedom from the Known"
                 };
+            // http://www.amazon.com/The-Book-Life-Meditations-Krishnamurti/dp/0060648791
+            var bookTheBookOfLife = new Book
+            {
+                Author = authorJidduKrishnamurti,
+                Name = "The Book of Life"
+            };
+            // http://www.amazon.com/Think-These-Things-Jiddu-Krishnamurti/dp/0060916095
+            var bookThinkOnTheseThings = new Book
+            {
+                Author = authorJidduKrishnamurti,
+                Name = "Think on These Things"
+            };
+            // http://www.amazon.com/On-Love-Loneliness-Jiddu-Krishnamurti/dp/0062510134
+            var bookOnLoveAndLoneliness = new Book
+            {
+                Author = authorJidduKrishnamurti,
+                Name = "On Love and Loneliness"
+            };
+            // http://www.amazon.com/Stories-Shuke-Beita-Chinese/dp/7539175745
+            var bookTheStoriesOfShukeAndBeita = new Book
+            {
+                Author = authorYuanJieZheng,
+                Name = "The Stories of Shuke and Beita"
+            };
+            // http://www.amazon.com/Stories-about-Pi-Pilu-Chinese/dp/7539175761
+            var bookStoriesAboutPiPilu = new Book
+            {
+                Author = authorYuanJieZheng,
+                Name = "Stories about Pi Pilu"
+            };
+            // http://www.amazon.com/Stories-about-Lu-Xixi-Chinese/dp/7539175753
+            var bookStoriesAboutLuXixi = new Book
+            {
+                Author = authorYuanJieZheng,
+                Name = "Stories about Lu Xixi"
+            };
+            // http://www.amazon.com/Island-Blue-Dolphins-Scott-ODell/dp/0547328613
+            var bookIslandOfTheBlueDolphins = new Book
+            {
+                Author = authorScottOdell,
+                Name = "Island of the Blue Dolphins"
+            };
+            // http://www.amazon.com/Sing-Down-Moon-Scott-ODell/dp/0547406320
+            var bookSingDownTheMoon = new Book
+            {
+                Author = authorScottOdell,
+                Name = "Sing Down the Moon"
+            };
+            // http://www.amazon.com/Black-Pearl-Scott-ODell/dp/0547334001
+            var bookTheBlackPearl = new Book
+            {
+                Author = authorScottOdell,
+                Name = "The Black Pearl"
+            };
 
             context.Books.AddOrUpdate(
                 b => b.Id,
                 bookSecret,
-                bookFreedomFromTheKnown
+                bookFreedomFromTheKnown,
+                bookTheBookOfLife,
+                bookThinkOnTheseThings,
+                bookOnLoveAndLoneliness,
+                bookTheStoriesOfShukeAndBeita,
+                bookStoriesAboutPiPilu,
+                bookStoriesAboutLuXixi,
+                bookIslandOfTheBlueDolphins,
+                bookSingDownTheMoon,
+                bookTheBlackPearl
                 );
             context.SaveChanges();
 

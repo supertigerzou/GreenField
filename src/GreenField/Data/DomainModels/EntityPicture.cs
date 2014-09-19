@@ -1,18 +1,8 @@
-﻿using GreenField.Framework.Data.DomainModels;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace GreenField.Books.Data.DomainModels
+namespace GreenField.Framework.Data.DomainModels
 {
-    //public class BookPicture : EntityPicture<BookEntityPicture>
-    //{
-    //}
-
-
-    //public class AuthorPicture : EntityPicture<AuthorEntityPicture>
-    //{
-    //}
-
-    public partial class EntityPicture : BaseEntity
+    public class EntityPicture : BaseEntity
     {
         private ICollection<EntityEntityPicture<BaseEntity, EntityPicture>> _entityEntityPictures;
 

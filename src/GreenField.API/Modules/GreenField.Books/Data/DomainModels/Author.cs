@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using GreenField.Framework.Data.DomainModels;
+using System.Collections.Generic;
 
 namespace GreenField.Books.Data.DomainModels
 {

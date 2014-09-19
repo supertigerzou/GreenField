@@ -72,15 +72,11 @@
     <Compile Include="Data\DomainModels\BookEntityPicture.cs" />
     <Compile Include="Data\DomainModels\AuthorEntityPicture.cs" />
     <Compile Include="Data\DomainModels\AuthorEntityPictureMap.cs" />
-    <Compile Include="Data\DomainModels\EntityEntityPicture.cs" />
     <Compile Include="Data\DomainModels\BookEntityPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookMap.cs" />
-    <Compile Include="Data\DomainModels\EntityPicture.cs" />
-    <Compile Include="Data\DomainModels\EntityPictureMap.cs" />
-    <Compile Include="Data\DomainModels\Person.cs" />
-    <Compile Include="Migrations\201409171513547_Init.cs" />
-    <Compile Include="Migrations\201409171513547_Init.Designer.cs">
-      <DependentUpon>201409171513547_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201409190353362_Init.cs" />
+    <Compile Include="Migrations\201409190353362_Init.Designer.cs">
+      <DependentUpon>201409190353362_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,8 +125,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201409171513547_Init.resx">
-      <DependentUpon>201409171513547_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201409190353362_Init.resx">
+      <DependentUpon>201409190353362_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
