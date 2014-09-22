@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenField.API", "GreenField.API\GreenField.API.csproj", "{6EA3FFB6-9FF7-404A-A291-652B22ECBDA3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{DE697EF8-9A7F-49A1-BF33-A1625755457A}"
@@ -26,6 +28,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GreenField.Web", "GreenFiel
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55854"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "GreenField.Web\"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenField.Books", "GreenField.API\Modules\GreenField.Books\GreenField.Books.csproj", "{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}"
@@ -47,7 +50,6 @@ Global
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31808348-D9F2-400E-8AEA-DF2E38D70DCD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{0147CBA1-91D3-40DD-B011-873CFB1AF622}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{BA7C1EFA-0B22-48FB-87C8-5A9DBBA6C7B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
