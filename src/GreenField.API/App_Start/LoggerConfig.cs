@@ -1,5 +1,4 @@
 ﻿using GreenField.API.Middlewares;
-using System.Diagnostics;
 
 namespace GreenField.API.App_Start
 {
@@ -9,7 +8,6 @@ namespace GreenField.API.App_Start
         {
             return new LoggerOptions
                 {
-                    Log = (key, value) => Debug.WriteLine("{0}: {1}", key, value),
                     RequestKeys = new[] {"owin.RequestPath", "owin.RequestMethod"},
                     ResponseKeys = new[] {"owin.ResponseStatusCode"}
                 };

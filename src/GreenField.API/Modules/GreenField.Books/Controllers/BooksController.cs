@@ -9,10 +9,17 @@ namespace GreenField.Books.Controllers
     [RoutePrefix("api/Books")]
     public class BooksController : ApiController
     {
+        private readonly IBookService _bookService;
+
+        public BooksController(IBookService bookService)
+        {
+            _bookService = bookService;
+        }
+
         [Route("")]
         public IHttpActionResult Get()
         {
-            return Ok(new BookService().GetAll().Select(book => new BookViewModel
+            return Ok(_bookService.GetAll().Select(book => new BookViewModel
                 {
                     Name = book.Name,
                     Auther = book.Author.FirstName + " " + book.Author.LastName

@@ -6,7 +6,12 @@ using System.Linq;
 
 namespace GreenField.Books.Services
 {
-    public class BookService
+    public interface IBookService
+    {
+        List<Book> GetAll();
+    }
+
+    public class BookService : IBookService
     {
         private readonly IRepository<Book> _bookRepository;
 
