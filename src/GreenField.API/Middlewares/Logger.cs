@@ -32,8 +32,8 @@ namespace GreenField.API.Middlewares
 
         public Logger(OwinMiddleware next, ILogger logger) : base(next)
         {
-            this._logger = logger;
-            this._options = LoggerConfig.Init();
+            _logger = logger;
+            _options = LoggerConfig.Init();
         }
 
         public async override Task Invoke(IOwinContext context)

@@ -6,12 +6,14 @@ namespace GreenField.Framework.Data.DomainModels
         protected BaseEntity()
         {
             ModifiedDate = DateTime.Now;
+            CreateDate = DateTime.Now;
         }
 
         /// <summary>
         /// Gets or sets the entity identifier
         /// </summary>
-        public int Id { get; set; }
+        public long Id { get; set; }
         public DateTime ModifiedDate { get; set; }
+        public DateTime CreateDate { get; set; }
     }
 }

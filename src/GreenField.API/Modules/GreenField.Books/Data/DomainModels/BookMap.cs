@@ -6,10 +6,10 @@ namespace GreenField.Books.Data.DomainModels
     {
         public BookMap()
         {
-            this.ToTable("Book");
-            this.HasKey(b => b.Id);
+            ToTable("Book");
+            HasKey(b => b.Id);
 
-            this.HasRequired(b => b.Author)
+            HasRequired(b => b.Author)
                 .WithMany(a => a.Books)
                 .HasForeignKey(b => b.AutherId);
 

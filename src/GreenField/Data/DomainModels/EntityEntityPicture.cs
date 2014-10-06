@@ -9,8 +9,8 @@ namespace GreenField.Framework.Data.DomainModels
             ModifiedDate = DateTime.Now;
         }
 
-        public int EntityId { get; set; }
-        public int EntityPictureId { get; set; }
+        public long EntityId { get; set; }
+        public long EntityPictureId { get; set; }
         public bool Primary { get; set; }
         public DateTime ModifiedDate { get; set; }
         public virtual TEntity Entity { get; set; }

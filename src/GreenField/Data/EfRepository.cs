@@ -17,12 +17,12 @@ namespace GreenField.Framework.Data
         /// <param name="context">Object context</param>
         public EfRepository(IDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public virtual T GetById(object id)
         {
-            return this.Entities.Find(id);
+            return Entities.Find(id);
         }
 
         public virtual void Insert(T entity)
@@ -32,9 +32,9 @@ namespace GreenField.Framework.Data
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this.Entities.Add(entity);
+                Entities.Add(entity);
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -56,7 +56,7 @@ namespace GreenField.Framework.Data
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -78,9 +78,9 @@ namespace GreenField.Framework.Data
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this.Entities.Remove(entity);
+                Entities.Remove(entity);
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -99,7 +99,7 @@ namespace GreenField.Framework.Data
         {
             get
             {
-                return this.Entities;
+                return Entities;
             }
         }
 

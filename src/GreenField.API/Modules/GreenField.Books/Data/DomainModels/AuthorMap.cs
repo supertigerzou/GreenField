@@ -6,10 +6,10 @@ namespace GreenField.Books.Data.DomainModels
     {
         public AuthorMap()
         {
-            this.ToTable("Author");
-            this.HasKey(b => b.Id);
+            ToTable("Author");
+            HasKey(b => b.Id);
 
-            this.HasOptional(a => a.LoginUser);
+            HasOptional(a => a.LoginUser);
         }
     }
 }

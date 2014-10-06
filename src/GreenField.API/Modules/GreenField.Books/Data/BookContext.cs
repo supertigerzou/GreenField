@@ -17,6 +17,11 @@ namespace GreenField.Books.Data
             
         }
 
+        public BookContext(string nameOrConnectionString) : base(nameOrConnectionString)
+        {
+            
+        }
+
         public virtual IDbSet<Book> Books { get; set; }
 
         public virtual IDbSet<Author> Authors { get; set; }

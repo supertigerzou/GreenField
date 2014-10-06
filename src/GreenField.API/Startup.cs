@@ -5,6 +5,7 @@ using GreenField.API.Middlewares;
 using GreenField.API.Providers;
 using GreenField.Books.Services;
 using Microsoft.Owin;
+using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
@@ -44,7 +45,7 @@ namespace GreenField.API
             // Make sure the Autofac lifetime scope is passed to Web API.
             app.UseAutofacWebApi(config);
 
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseCors(CorsOptions.AllowAll);
             app.UseWebApi(config);
 
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<BookContext, Configuration>());
