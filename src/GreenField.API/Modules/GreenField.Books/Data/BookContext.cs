@@ -1,18 +1,18 @@
 ﻿using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data;
+using GreenField.Framework.Data.DomainModels;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using GreenField.Framework.Data.DomainModels;
 
 namespace GreenField.Books.Data
 {
     public class BookContext : GFDbContext
     {
         public BookContext()
-            : base("GFContext")
+            : base("GreenField")
         {
             
         }

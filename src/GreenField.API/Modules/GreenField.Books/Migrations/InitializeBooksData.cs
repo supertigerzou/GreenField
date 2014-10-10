@@ -12,6 +12,8 @@ namespace GreenField.Books.Migrations
     {
         public static void Init(BookContext context)
         {
+            var webHelper = new WebHelper();
+
             //  Use the DbSet<T>.AddOrUpdate() helper extension method to avoid creating duplicate seed data.
             var loginUserVictor = new ApplicationUser
             {
@@ -156,93 +158,93 @@ namespace GreenField.Books.Migrations
             var pictureSecret1 = new EntityPicture
             {
                 LargePhotoFileName = "secret_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "secret_1_large.jpg")),
                 ThumbnailPhotoFileName = "secret_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "secret_1_small.jpg"))
             };
             var pictureSecret2 = new EntityPicture
             {
                 LargePhotoFileName = "secret_2_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_2_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "secret_2_large.jpg")),
                 ThumbnailPhotoFileName = "secret_2_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_2_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "secret_2_small.jpg"))
             };
             var pictureSecret3 = new EntityPicture
             {
                 LargePhotoFileName = "secret_3_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "secret_3_large.jpg")),
                 ThumbnailPhotoFileName = "secret_3_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "secret_3_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "secret_3_small.jpg"))
             };
             var pictureFreedomFromTheKnown1 = new EntityPicture
             {
                 LargePhotoFileName = "FreedomFromTheKnown_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "FreedomFromTheKnown_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "FreedomFromTheKnown_1_large.jpg")),
                 ThumbnailPhotoFileName = "FreedomFromTheKnown_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "FreedomFromTheKnown_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "FreedomFromTheKnown_1_small.jpg"))
             };
             var pictureIslandOfTheBlueDolphins1 = new EntityPicture
             {
                 LargePhotoFileName = "IslandOfTheBlueDolphins_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "IslandOfTheBlueDolphins_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "IslandOfTheBlueDolphins_1_large.jpg")),
                 ThumbnailPhotoFileName = "IslandOfTheBlueDolphins_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "IslandOfTheBlueDolphins_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "IslandOfTheBlueDolphins_1_small.jpg"))
             };
             var pictureOnLoveAndLoneliness1 = new EntityPicture
             {
                 LargePhotoFileName = "OnLoveAndLoneliness_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "OnLoveAndLoneliness_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "OnLoveAndLoneliness_1_large.jpg")),
                 ThumbnailPhotoFileName = "OnLoveAndLoneliness_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "OnLoveAndLoneliness_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "OnLoveAndLoneliness_1_small.jpg"))
             };
             var pictureSingDownTheMoon1 = new EntityPicture
             {
                 LargePhotoFileName = "SingDownTheMoon_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "SingDownTheMoon_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "SingDownTheMoon_1_large.jpg")),
                 ThumbnailPhotoFileName = "SingDownTheMoon_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "SingDownTheMoon_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "SingDownTheMoon_1_small.jpg"))
             };
             var pictureStoriesAboutLuXixi1 = new EntityPicture
             {
                 LargePhotoFileName = "StoriesAboutLuXixi_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "StoriesAboutLuXixi_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "StoriesAboutLuXixi_1_large.jpg")),
                 ThumbnailPhotoFileName = "StoriesAboutLuXixi_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "StoriesAboutLuXixi_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "StoriesAboutLuXixi_1_small.jpg"))
             };
             var pictureStoriesAboutPiPilu1 = new EntityPicture
             {
                 LargePhotoFileName = "StoriesAboutPiPilu_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "StoriesAboutPiPilu_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "StoriesAboutPiPilu_1_large.jpg")),
                 ThumbnailPhotoFileName = "StoriesAboutPiPilu_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "StoriesAboutPiPilu_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "StoriesAboutPiPilu_1_small.jpg"))
             };
             var pictureTheBlackPearl1 = new EntityPicture
             {
                 LargePhotoFileName = "TheBlackPearl_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "TheBlackPearl_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "TheBlackPearl_1_large.jpg")),
                 ThumbnailPhotoFileName = "TheBlackPearl_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "TheBlackPearl_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "TheBlackPearl_1_small.jpg"))
             };
             var pictureTheBookOfLife1 = new EntityPicture
             {
                 LargePhotoFileName = "TheBookOfLife_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "TheBookOfLife_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "TheBookOfLife_1_large.jpg")),
                 ThumbnailPhotoFileName = "TheBookOfLife_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "TheBookOfLife_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "TheBookOfLife_1_small.jpg"))
             };
             var pictureTheStoriesOfShukeAndBeita1 = new EntityPicture
             {
                 LargePhotoFileName = "TheStoriesOfShukeAndBeita_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "TheStoriesOfShukeAndBeita_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "TheStoriesOfShukeAndBeita_1_large.jpg")),
                 ThumbnailPhotoFileName = "TheStoriesOfShukeAndBeita_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "TheStoriesOfShukeAndBeita_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "TheStoriesOfShukeAndBeita_1_small.jpg"))
             };
             var pictureThinkOnTheseThings1 = new EntityPicture
             {
                 LargePhotoFileName = "ThinkOnTheseThings_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "ThinkOnTheseThings_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "ThinkOnTheseThings_1_large.jpg")),
                 ThumbnailPhotoFileName = "ThinkOnTheseThings_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "ThinkOnTheseThings_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "ThinkOnTheseThings_1_small.jpg"))
             };
             #endregion
 
@@ -250,16 +252,16 @@ namespace GreenField.Books.Migrations
             var pictureRhondaByrne1 = new EntityPicture
             {
                 LargePhotoFileName = "RhondaByrne_1_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_large.jpg")),
                 ThumbnailPhotoFileName = "RhondaByrne_1_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "RhondaByrne_1_small.jpg"))
             };
             var pictureRhondaByrne2 = new EntityPicture
             {
                 LargePhotoFileName = "RhondaByrne_2_large.jpg",
-                LargePhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_large.jpg")),
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_large.jpg")),
                 ThumbnailPhotoFileName = "RhondaByrne_2_small.jpg",
-                ThumbNailPhoto = File.ReadAllBytes(WebHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_small.jpg"))
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_small.jpg"))
             };
             #endregion
 

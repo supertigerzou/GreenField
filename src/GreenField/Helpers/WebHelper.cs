@@ -4,14 +4,14 @@ using System.Web.Hosting;
 
 namespace GreenField.Framework.Helpers
 {
-    public class WebHelper
+    public class WebHelper : IWebHelper
     {
         /// <summary>
         /// Maps a virtual path to a physical disk path.
         /// </summary>
         /// <param name="path">The path to map. E.g. "~/bin"</param>
         /// <returns>The physical path. E.g. "c:\inetpub\wwwroot\bin"</returns>
-        public static string MapPath(string path)
+        public string MapPath(string path)
         {
             if (HostingEnvironment.IsHosted)
             {

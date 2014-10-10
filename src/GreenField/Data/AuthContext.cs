@@ -6,7 +6,7 @@ namespace GreenField.Framework.Data
     public class AuthContext : IdentityDbContext<ApplicationUser>
     {
         public AuthContext()
-            : base("GFContext")
+            : base("GreenField")
         {
 
         }

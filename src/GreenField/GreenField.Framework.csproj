@@ -66,8 +66,11 @@
     <Compile Include="Data\GFDbContext.cs" />
     <Compile Include="Data\IDbContext.cs" />
     <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Helpers\IWebHelper.cs" />
     <Compile Include="Helpers\WebHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IPictureService.cs" />
+    <Compile Include="Services\PictureService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

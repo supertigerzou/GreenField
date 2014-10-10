@@ -12,7 +12,7 @@ namespace GreenField.API.App_Start
         public static void Register(HttpConfiguration config, ContainerBuilder builder)
         {
             // Get the executable assembly location
-            var serviceAssembliesPath = WebHelper.MapPath("~/") + @"bin\";
+            var serviceAssembliesPath = (new WebHelper()).MapPath("~/") + @"bin\";
 
             // The Assembly to load
             string path = serviceAssembliesPath + @"\GreenField.Books.dll";

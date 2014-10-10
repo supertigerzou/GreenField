@@ -8,26 +8,25 @@ using GreenField.Framework.Services;
 
 namespace GreenField.Books.Controllers
 {
-    [RoutePrefix("api/Books")]
-    public class BooksController : ApiController
+    [RoutePrefix("api/Authors")]
+    public class AuthorsController : ApiController
     {
-        private readonly IBookService _bookService;
+        private readonly IAuthorService _authorService;
         private readonly IPictureService _pictureService;
 
-        public BooksController(IBookService bookService, IPictureService pictureService)
+        public AuthorsController(IAuthorService authorService, IPictureService pictureService)
         {
-            _bookService = bookService;
+            _authorService = authorService;
             _pictureService = pictureService;
         }
 
         [Route("")]
         public IHttpActionResult Get()
         {
-            return Ok(_bookService.GetAll().Select(book => new BookViewModel
+            return Ok(_authorService.GetAll().Select(author => new AuthorViewModel
                 {
-                    Name = book.Name,
-                    Author = book.Author.FirstName + " " + book.Author.LastName,
-                    PictureModels = book.EntityEntityPictures.Select(pic => new PictureModel
+                    Name = string.Format("{0} {1}", author.FirstName, author.LastName),
+                    PictureModels = author.EntityEntityPictures.Select(pic => new PictureModel
                         {
                             ImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture)
                         }).ToList()

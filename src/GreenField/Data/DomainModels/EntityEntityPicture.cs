@@ -2,7 +2,7 @@
 
 namespace GreenField.Framework.Data.DomainModels
 {
-    public partial class EntityEntityPicture<TEntity, TEntityPicture> 
+    public class EntityEntityPicture<TEntity, TEntityPicture> 
     {
         public EntityEntityPicture()
         {
