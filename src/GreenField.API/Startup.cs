@@ -33,7 +33,7 @@ namespace GreenField.API
             builder.Register(c => new WebHelper()).As<IWebHelper>().InstancePerRequest();
             builder.Register(c => new AuthorService()).As<IAuthorService>().InstancePerRequest();
             builder.Register(c => new BookService()).As<IBookService>().InstancePerRequest();
-            builder.Register(c => new PictureService()).As<IPictureService>().InstancePerRequest();
+            builder.RegisterType<PictureService>().As<IPictureService>().InstancePerRequest();
 
             // Autofac will add middleware to IAppBuilder in the order registered.
             // The middleware will execute in the order added to IAppBuilder.
