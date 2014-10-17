@@ -166,6 +166,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Images\Thumbs\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
   <PropertyGroup>

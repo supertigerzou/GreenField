@@ -3,7 +3,7 @@ namespace GreenField.Books.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -27,9 +27,10 @@ namespace GreenField.Books.Migrations
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
-                        PersonType = c.String(),
-                        FirstName = c.String(),
-                        LastName = c.String(),
+                        Description = c.String(maxLength: 500),
+                        PersonType = c.String(maxLength: 2, fixedLength: true),
+                        FirstName = c.String(maxLength: 20),
+                        LastName = c.String(maxLength: 20),
                         ModifiedDate = c.DateTime(nullable: false),
                         CreateDate = c.DateTime(nullable: false),
                         LoginUser_Id = c.String(maxLength: 128),

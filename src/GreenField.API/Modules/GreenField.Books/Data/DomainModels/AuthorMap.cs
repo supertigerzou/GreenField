@@ -7,7 +7,11 @@ namespace GreenField.Books.Data.DomainModels
         public AuthorMap()
         {
             ToTable("Author");
-            HasKey(b => b.Id);
+            HasKey(a => a.Id);
+            Property(author => author.Description).HasMaxLength(500);
+            Property(author => author.FirstName).HasMaxLength(20);
+            Property(author => author.LastName).HasMaxLength(20);
+            Property(author => author.PersonType).IsFixedLength().HasMaxLength(2);
 
             HasOptional(a => a.LoginUser);
         }

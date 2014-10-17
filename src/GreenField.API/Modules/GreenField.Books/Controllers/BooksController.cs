@@ -29,7 +29,8 @@ namespace GreenField.Books.Controllers
                     Author = book.Author.FirstName + " " + book.Author.LastName,
                     PictureModels = book.EntityEntityPictures.Select(pic => new PictureModel
                         {
-                            ImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture)
+                            ImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture, PictureType.Thumbnail),
+                            FullSizeImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture, PictureType.Full)
                         }).ToList()
                 }));
         }

@@ -9,6 +9,7 @@ namespace GreenField.Books.Services
     public interface IAuthorService
     {
         List<Author> GetAll();
+        Author GetById(long authorId);
     }
 
     public class AuthorService : IAuthorService
@@ -23,6 +24,11 @@ namespace GreenField.Books.Services
         public List<Author> GetAll()
         {
             return _authorRepository.Table.ToList();
+        }
+
+        public Author GetById(long authorId)
+        {
+            return _authorRepository.GetById(authorId);
         }
     }
 }

@@ -1,10 +1,9 @@
-﻿using GreenField.Books.Data.DomainModels;
-using System.Linq;
-using System.Web.Http;
-using GreenField.Books.Services;
+﻿using GreenField.Books.Services;
 using GreenField.Books.ViewModels;
 using GreenField.Books.ViewModels.Media;
 using GreenField.Framework.Services;
+using System.Linq;
+using System.Web.Http;
 
 namespace GreenField.Books.Controllers
 {
@@ -25,12 +24,34 @@ namespace GreenField.Books.Controllers
         {
             return Ok(_authorService.GetAll().Select(author => new AuthorViewModel
                 {
+                    Id = author.Id,
                     Name = string.Format("{0} {1}", author.FirstName, author.LastName),
+                    Description = author.Description,
                     PictureModels = author.EntityEntityPictures.Select(pic => new PictureModel
                         {
-                            ImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture)
+                            ImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture, PictureType.Thumbnail),
+                            FullSizeImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture, PictureType.Full)
                         }).ToList()
                 }));
+        }
+
+        // GET api/authors/5
+        [Route("{id:long}")]
+        public IHttpActionResult Get(long id)
+        {
+            var author = _authorService.GetById(id);
+
+            return Ok(new AuthorViewModel
+            {
+                Id = author.Id,
+                Name = string.Format("{0} {1}", author.FirstName, author.LastName),
+                Description = author.Description,
+                PictureModels = author.EntityEntityPictures.Select(pic => new PictureModel
+                {
+                    ImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture, PictureType.Thumbnail),
+                    FullSizeImageUrl = _pictureService.GetUrlByPicture(pic.EntityPicture, PictureType.Full)
+                }).ToList()
+            });
         }
     }
 }

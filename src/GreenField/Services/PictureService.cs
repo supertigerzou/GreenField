@@ -14,15 +14,29 @@ namespace GreenField.Framework.Services
             _webHelper = webHelper;
         }
 
-        public string GetUrlByPicture(EntityPicture picture)
+        public string GetUrlByPicture(EntityPicture picture, PictureType pictureType = PictureType.Thumbnail)
         {
-            var thumbnailFilePath = GetFileLocalPath(picture.ThumbnailPhotoFileName);
-            if (!File.Exists(thumbnailFilePath))
+            string fileName = string.Empty;
+            var photo = new byte[0];
+
+            switch (pictureType)
             {
-                File.WriteAllBytes(thumbnailFilePath, picture.ThumbNailPhoto);
+                case PictureType.Thumbnail:
+                    fileName = picture.ThumbnailPhotoFileName;
+                    photo = picture.ThumbNailPhoto;
+                    break;
+                case PictureType.Full:
+                    fileName = picture.LargePhotoFileName;
+                    photo = picture.LargePhoto;
+                    break;
+            }
+            var filePath = GetFileLocalPath(fileName);
+            if (!File.Exists(filePath))
+            {
+                File.WriteAllBytes(filePath, photo);
             }
 
-            return HostingEnvironment.ApplicationVirtualPath + "content/images/thumbs/" + picture.ThumbnailPhotoFileName;
+            return HostingEnvironment.ApplicationVirtualPath + "content/images/thumbs/" + fileName;
         }
 
         protected virtual string GetFileLocalPath(string fileName)

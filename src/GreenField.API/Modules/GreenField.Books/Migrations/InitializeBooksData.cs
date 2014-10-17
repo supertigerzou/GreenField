@@ -36,7 +36,11 @@ namespace GreenField.Books.Migrations
             var authorRhondaByrne = new Author
             {
                 FirstName = "Rhonda",
-                LastName = "Byrne"
+                LastName = "Byrne",
+                Description = "<p>Rhonda Byrne is an Australian television writer and producer, best known for her New Thought books The Secret " +
+                "(based on a film she produced of the same name) and its sequel The Power. She has also written The Magic.</p>" +
+                "<p>In 2007 Byrne was featured in Time Magazine's list of 100 people who shape the world. She gained mainstream popularity and " +
+                "commercial success after appearing on The Oprah Winfrey Show.[3] Her philosophy is that believing will allow you to achieve your wishes and dreams.</p>"
             };
             var authorJidduKrishnamurti = new Author
             {
