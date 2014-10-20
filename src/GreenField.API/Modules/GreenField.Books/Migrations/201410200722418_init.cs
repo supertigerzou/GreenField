@@ -27,7 +27,8 @@ namespace GreenField.Books.Migrations
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),
-                        Description = c.String(maxLength: 500),
+                        ShortDescription = c.String(maxLength: 500),
+                        Description = c.String(maxLength: 1000),
                         PersonType = c.String(maxLength: 2, fixedLength: true),
                         FirstName = c.String(maxLength: 20),
                         LastName = c.String(maxLength: 20),

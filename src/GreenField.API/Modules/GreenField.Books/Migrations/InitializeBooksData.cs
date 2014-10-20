@@ -37,6 +37,8 @@ namespace GreenField.Books.Migrations
             {
                 FirstName = "Rhonda",
                 LastName = "Byrne",
+                ShortDescription = "Rhonda Byrne is an Australian television writer and producer, best known " +
+                "for her New Thought books The Secret and its sequel The Power.",
                 Description = "<p>Rhonda Byrne is an Australian television writer and producer, best known for her New Thought books The Secret " +
                 "(based on a film she produced of the same name) and its sequel The Power. She has also written The Magic.</p>" +
                 "<p>In 2007 Byrne was featured in Time Magazine's list of 100 people who shape the world. She gained mainstream popularity and " +
@@ -45,32 +47,56 @@ namespace GreenField.Books.Migrations
             var authorJidduKrishnamurti = new Author
             {
                 FirstName = "Jiddu",
-                LastName = "Jiddu Krishnamurti"
+                LastName = "Krishnamurti",
+                ShortDescription = "Jiddu Krishnamurti was an Indian speaker and writer on philosophical and spiritual " + 
+                "subjects.",
+                Description = "<p>Jiddu Krishnamurti was an Indian speaker and writer on philosophical and spiritual " + 
+                "subjects. In his early life he was groomed to be the new World Teacher but later rejected this " +
+                "mantle and disbanded the organisation behind it.</p><p>His subject matter included psychological " +
+                "revolution, the nature of mind, meditation, inquiry, human relationships, and bringing about " +
+                "radical change in society.</p>"
             };
             var authorYuanJieZheng = new Author
             {
                 FirstName = "YuanJie",
-                LastName = "Zheng"
+                LastName = "Zheng",
+                ShortDescription = "Zheng Yuanjie (born 1955) is a Chinese fairy tale author, and founder and sole " + 
+                "writer of a children's literature magazine known as the King of Fairy Tales.",
+                Description = "<p>Zheng Yuanjie (born 1955) is a Chinese fairy tale author, and founder and sole " + 
+                "writer of a children's literature magazine known as the King of Fairy Tales. The first issue " + 
+                "was published in 1984. His characters (including PiPilu, LuXixi, Shuke, Beita and Luoke) are " +
+                "registered trademarks.</p><p>Zheng Yuanjie is critical of conventional methods of education, " +
+                "claiming that \"college education tends to make simple things complicated and hard to understand\"." +
+                " He chose to home-school his son rather than to send him to middle school."
             };
             var authorScottOdell = new Author
             {
                 FirstName = "Scott",
-                LastName = "O'Dell"
+                LastName = "O'Dell",
+                ShortDescription = "Scott O'Dell (May 23, 1898 – October 16, 1989) was an American author of 26 novels " +
+                "for young people, along with three novels for adults and four nonfiction books.",
+                Description = "<p>Scott O'Dell (May 23, 1898 – October 16, 1989) was an American author of 26 novels " +
+                "for young people, along with three novels for adults and four nonfiction books. He wrote " +
+                "historical fiction, primarily, including several children's novels are about historical " +
+                "California and Mexico.</p><p>For his contribution as a children's writer he received the " +
+                "biennial, international Hans Christian Andersen Award in 1972, the highest recognition " +
+                "available to creators of children's books. He received the The University of Southern " +
+                "Mississippi Medallion in 1976 and the Catholic Libraries Association Regina Medal in 1978.</p>"
             };
-            var authorVictorZou = new Author
-            {
-                FirstName = "Victor",
-                LastName = "Zou",
-                LoginUser = loginUserVictor
-            };
+            //var authorVictorZou = new Author
+            //{
+            //    FirstName = "Victor",
+            //    LastName = "Zou",
+            //    LoginUser = loginUserVictor
+            //};
 
             context.Authors.AddOrUpdate(
-                p => p.Id,
-                authorRhondaByrne,
-                authorJidduKrishnamurti,
-                authorYuanJieZheng,
-                authorScottOdell,
-                authorVictorZou
+                p => p.Id
+                , authorRhondaByrne
+                , authorJidduKrishnamurti
+                , authorYuanJieZheng
+                , authorScottOdell
+                //, authorVictorZou
                 );
             context.SaveChanges();
 
@@ -267,6 +293,27 @@ namespace GreenField.Books.Migrations
                 ThumbnailPhotoFileName = "RhondaByrne_2_small.jpg",
                 ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "RhondaByrne_2_small.jpg"))
             };
+            var pictureJidduKrishnamurti1 = new EntityPicture
+            {
+                LargePhotoFileName = "JidduKrishnamurti_1_large.png",
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "JidduKrishnamurti_1_large.png")),
+                ThumbnailPhotoFileName = "JidduKrishnamurti_1_small.png",
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "JidduKrishnamurti_1_small.png"))
+            };
+            var pictureScottODell1 = new EntityPicture
+            {
+                LargePhotoFileName = "Scott_O_Dell_1_large.jpg",
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "Scott_O_Dell_1_large.jpg")),
+                ThumbnailPhotoFileName = "Scott_O_Dell_1_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "Scott_O_Dell_1_small.jpg"))
+            };
+            var pictureZhengYuanJie1 = new EntityPicture
+            {
+                LargePhotoFileName = "ZhengYuanJie_1_large.jpg",
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "ZhengYuanJie_1_large.jpg")),
+                ThumbnailPhotoFileName = "ZhengYuanJie_1_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "ZhengYuanJie_1_small.jpg"))
+            };
             #endregion
 
             context.EntityPictures.AddOrUpdate(
@@ -429,10 +476,29 @@ namespace GreenField.Books.Migrations
                 EntityPicture = pictureRhondaByrne2,
                 Primary = false
             };
+            var authorPictureMapping3 = new AuthorEntityPicture
+            {
+                Entity = authorJidduKrishnamurti,
+                EntityPicture = pictureJidduKrishnamurti1,
+                Primary = true
+            };
+            var authorPictureMapping4 = new AuthorEntityPicture
+            {
+                Entity = authorYuanJieZheng,
+                EntityPicture = pictureZhengYuanJie1,
+                Primary = true
+            };
+            var authorPictureMapping5 = new AuthorEntityPicture
+            {
+                Entity = authorScottOdell,
+                EntityPicture = pictureScottODell1,
+                Primary = true
+            };
 
             context.AuthorEntityPictures.AddOrUpdate(
                 bbp => new { bbp.EntityId, bbp.EntityPictureId },
-                authorPictureMapping1, authorPictureMapping2
+                authorPictureMapping1, authorPictureMapping2, authorPictureMapping3,
+                authorPictureMapping4, authorPictureMapping5
                 );
         }
     }

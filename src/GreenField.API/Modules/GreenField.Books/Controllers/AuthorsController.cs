@@ -26,6 +26,7 @@ namespace GreenField.Books.Controllers
                 {
                     Id = author.Id,
                     Name = string.Format("{0} {1}", author.FirstName, author.LastName),
+                    ShortDescription = author.ShortDescription,
                     Description = author.Description,
                     PictureModels = author.EntityEntityPictures.Select(pic => new PictureModel
                         {

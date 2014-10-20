@@ -8,6 +8,7 @@ namespace GreenField.Books.Data.DomainModels
         private ICollection<Book> _books;
         private ICollection<AuthorEntityPicture> _authorEntityPictures;
 
+        public string ShortDescription { get; set; }
         public string Description { get; set; }
         public virtual ICollection<AuthorEntityPicture> EntityEntityPictures
         {

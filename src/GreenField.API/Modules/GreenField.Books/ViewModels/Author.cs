@@ -8,6 +8,7 @@ namespace GreenField.Books.ViewModels
     {
         public long Id { get; set; }
         public string Name { get; set; }
+        public string ShortDescription { get; set; }
         public string Description { get; set; }
         public IList<PictureModel> PictureModels { get; set; }
     }

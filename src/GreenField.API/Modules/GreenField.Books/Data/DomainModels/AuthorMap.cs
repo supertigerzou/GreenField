@@ -8,7 +8,8 @@ namespace GreenField.Books.Data.DomainModels
         {
             ToTable("Author");
             HasKey(a => a.Id);
-            Property(author => author.Description).HasMaxLength(500);
+            Property(author => author.ShortDescription).HasMaxLength(500);
+            Property(author => author.Description).HasMaxLength(1000);
             Property(author => author.FirstName).HasMaxLength(20);
             Property(author => author.LastName).HasMaxLength(20);
             Property(author => author.PersonType).IsFixedLength().HasMaxLength(2);
