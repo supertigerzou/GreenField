@@ -1,9 +1,12 @@
-﻿using Autofac;
+﻿using System.Linq;
+using System.Net.Http.Formatting;
+using Autofac;
 using Autofac.Integration.WebApi;
 using GreenField.Framework.Helpers;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
+using Newtonsoft.Json.Serialization;
 
 namespace GreenField.API.App_Start
 {
@@ -27,6 +30,9 @@ namespace GreenField.API.App_Start
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new {id = RouteParameter.Optional}
                 );
+
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

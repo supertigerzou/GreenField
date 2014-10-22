@@ -1,10 +1,9 @@
-﻿using GreenField.Books.Data.DomainModels;
-using System.Linq;
-using System.Web.Http;
-using GreenField.Books.Services;
+﻿using GreenField.Books.Services;
 using GreenField.Books.ViewModels;
 using GreenField.Books.ViewModels.Media;
 using GreenField.Framework.Services;
+using System.Linq;
+using System.Web.Http;
 
 namespace GreenField.Books.Controllers
 {
