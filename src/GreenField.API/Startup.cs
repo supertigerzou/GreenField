@@ -4,6 +4,7 @@ using GreenField.API.App_Start;
 using GreenField.API.Middlewares;
 using GreenField.API.Providers;
 using GreenField.Books.Services;
+using GreenField.Framework.Caching;
 using GreenField.Framework.Helpers;
 using GreenField.Framework.Services;
 using Microsoft.Owin;
@@ -31,8 +32,9 @@ namespace GreenField.API
             // Register a logger service to be used by the controller and middleware.
             builder.Register(c => new SimpleLogger()).As<ILogger>().InstancePerRequest();
             builder.Register(c => new WebHelper()).As<IWebHelper>().InstancePerRequest();
-            builder.Register(c => new AuthorService()).As<IAuthorService>().InstancePerRequest();
-            builder.Register(c => new BookService()).As<IBookService>().InstancePerRequest();
+            builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().SingleInstance();
+            builder.RegisterType<AuthorService>().As<IAuthorService>().InstancePerRequest();
+            builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
             builder.RegisterType<PictureService>().As<IPictureService>().InstancePerRequest();
 
             // Autofac will add middleware to IAppBuilder in the order registered.

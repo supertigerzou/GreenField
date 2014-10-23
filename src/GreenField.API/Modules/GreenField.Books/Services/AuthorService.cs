@@ -6,12 +6,6 @@ using System.Linq;
 
 namespace GreenField.Books.Services
 {
-    public interface IAuthorService
-    {
-        List<Author> GetAll();
-        Author GetById(long authorId);
-    }
-
     public class AuthorService : IAuthorService
     {
         private readonly IRepository<Author> _authorRepository;
