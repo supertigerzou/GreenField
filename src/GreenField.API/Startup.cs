@@ -67,8 +67,10 @@ namespace GreenField.API
                     AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                     Provider = new SimpleAuthrizationServerProvider()
                 };
+            var oAuthBearerOptions = new OAuthBearerAuthenticationOptions();
 
             app.UseOAuthAuthorizationServer(options);
+            app.UseOAuthBearerAuthentication(oAuthBearerOptions);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Http;
 
 namespace GreenField.Books.Controllers
 {
+    [Authorize]
     [RoutePrefix("api/Books")]
     public class BooksController : ApiController
     {
