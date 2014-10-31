@@ -1,14 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using GreenField.Users.Data;
+﻿using GreenField.Users.Data;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace GreenField.API.Providers
 {
     internal class SimpleAuthrizationServerProvider : OAuthAuthorizationServerProvider
     {
+        private readonly IAuthRepository _authRepository;
+
+        public SimpleAuthrizationServerProvider(IAuthRepository authRepository)
+        {
+            _authRepository = authRepository;
+        }
+
         public override Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
         {
             context.Validated();
@@ -20,15 +27,12 @@ namespace GreenField.API.Providers
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (var authRepo = new AuthRepository())
-            {
-                var user = await authRepo.FindUser(context.UserName, context.Password);
+            var user = await _authRepository.FindUser(context.UserName, context.Password);
 
-                if(user == null)
-                {
-                    context.SetError("invalid_grant", "The username or password is incorrect.");
-                    return;
-                }
+            if(user == null)
+            {
+                context.SetError("invalid_grant", "The username or password is incorrect.");
+                return;
             }
 
             var identity = new ClaimsIdentity(context.Options.AuthenticationType);

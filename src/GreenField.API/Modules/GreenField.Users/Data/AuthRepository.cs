@@ -7,7 +7,15 @@ using System.Threading.Tasks;
 
 namespace GreenField.Users.Data
 {
-    public class AuthRepository : IDisposable
+    public interface IAuthRepository
+    {
+        Task<ApplicationUser> FindUser(string userName, string password);
+        Task<IdentityUser> FindAsync(UserLoginInfo loginInfo);
+        Task<IdentityResult> CreateAsync(ApplicationUser user);
+        Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login);
+    }
+
+    public class AuthRepository : IDisposable, IAuthRepository
     {
         private readonly AuthContext _ctx;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -22,6 +30,27 @@ namespace GreenField.Users.Data
         {
             var user = await _userManager.FindAsync(userName, password);
             return user;
+        }
+
+        public async Task<IdentityUser> FindAsync(UserLoginInfo loginInfo)
+        {
+            IdentityUser user = await _userManager.FindAsync(loginInfo);
+
+            return user;
+        }
+
+        public async Task<IdentityResult> CreateAsync(ApplicationUser user)
+        {
+            var result = await _userManager.CreateAsync(user);
+
+            return result;
+        }
+
+        public async Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login)
+        {
+            var result = await _userManager.AddLoginAsync(userId, login);
+
+            return result;
         }
 
         public void Dispose()

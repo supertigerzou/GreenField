@@ -14,9 +14,10 @@ namespace GreenField.Books.Services
         private readonly IRepository<Book> _bookRepository;
         private readonly ICacheManager _cacheManager;
 
-        public BookService(ICacheManager cacheManager)
+        public BookService(ICacheManager cacheManager,
+            IRepository<Book> bookRepository)
         {
-            _bookRepository = new EfRepository<Book>(new BookContext());
+            _bookRepository = bookRepository;
             _cacheManager = cacheManager;
         }
 

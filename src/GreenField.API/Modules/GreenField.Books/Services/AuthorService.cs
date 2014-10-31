@@ -1,5 +1,4 @@
-﻿using GreenField.Books.Data;
-using GreenField.Books.Data.DomainModels;
+﻿using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +9,9 @@ namespace GreenField.Books.Services
     {
         private readonly IRepository<Author> _authorRepository;
 
-        public AuthorService()
+        public AuthorService(IRepository<Author> authorRepository)
         {
-            _authorRepository = new EfRepository<Author>(new BookContext());
+            _authorRepository = authorRepository;
         }
 
         public List<Author> GetAll()

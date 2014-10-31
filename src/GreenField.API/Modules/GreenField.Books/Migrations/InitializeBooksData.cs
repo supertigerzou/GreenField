@@ -295,10 +295,10 @@ namespace GreenField.Books.Migrations
             };
             var pictureJidduKrishnamurti1 = new EntityPicture
             {
-                LargePhotoFileName = "JidduKrishnamurti_1_large.png",
-                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "JidduKrishnamurti_1_large.png")),
-                ThumbnailPhotoFileName = "JidduKrishnamurti_1_small.png",
-                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "JidduKrishnamurti_1_small.png"))
+                LargePhotoFileName = "JidduKrishnamurti_1_large.jpg",
+                LargePhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "JidduKrishnamurti_1_large.jpg")),
+                ThumbnailPhotoFileName = "JidduKrishnamurti_1_small.jpg",
+                ThumbNailPhoto = File.ReadAllBytes(webHelper.MapPath(sampleImagePathBase + "JidduKrishnamurti_1_small.jpg"))
             };
             var pictureScottODell1 = new EntityPicture
             {
