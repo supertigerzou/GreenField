@@ -1,5 +1,6 @@
 ﻿using GreenField.Framework.Data.DomainModels;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace GreenField.Framework.Data
 {
@@ -16,5 +17,8 @@ namespace GreenField.Framework.Data
         {
             
         }
+
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
     }
 }

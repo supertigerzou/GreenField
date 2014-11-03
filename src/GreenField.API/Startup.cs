@@ -12,11 +12,11 @@ using GreenField.Framework.Services;
 using GreenField.Users.Data;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
+using Microsoft.Owin.Security.Google;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
 using System;
 using System.Web.Http;
-using System.Web.Http.Dependencies;
 
 //[assembly: OwinStartup(typeof(GreenField.API.Startup))]
 
@@ -24,7 +24,8 @@ namespace GreenField.API
 {
     public class Startup
     {
-        public static IDependencyResolver DependencyResolver { get; private set; }
+        public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
+        public static GoogleOAuth2AuthenticationOptions GoogleAuthOptions { get; private set; }
 
         public void Configuration(IAppBuilder app)
         {
@@ -50,9 +51,8 @@ namespace GreenField.API
 
             var container = builder.Build();
 
-            DependencyResolver = new AutofacWebApiDependencyResolver(container);
             // Create an assign a dependency resolver for Web API to use.
-            config.DependencyResolver = DependencyResolver;
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
             ConfigureOAuth(app);
 
@@ -77,10 +77,19 @@ namespace GreenField.API
                     AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(30),
                     Provider = new SimpleAuthrizationServerProvider(new AuthRepository())
                 };
-            var oAuthBearerOptions = new OAuthBearerAuthenticationOptions();
+            OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
 
             app.UseOAuthAuthorizationServer(options);
-            app.UseOAuthBearerAuthentication(oAuthBearerOptions);
+            app.UseOAuthBearerAuthentication(OAuthBearerOptions);
+
+            //Configure Google External Login
+            GoogleAuthOptions = new GoogleOAuth2AuthenticationOptions
+                {
+                ClientId = "674805668859-gdbb5tsqglgn5dbsibqnkkuvmeu0qskd.apps.googleusercontent.com",
+                ClientSecret = "HdD4ZAQBtlT4YM7-i2Y1n9Zb",
+                Provider = new GoogleAuthProvider()
+            };
+            app.UseGoogleAuthentication(GoogleAuthOptions);
         }
     }
 }

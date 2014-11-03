@@ -1,5 +1,6 @@
 ﻿using GreenField.Framework.Data;
 using GreenField.Framework.Data.DomainModels;
+using GreenField.Users.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
@@ -7,26 +8,18 @@ using System.Threading.Tasks;
 
 namespace GreenField.Users.Data
 {
-    public interface IAuthRepository
-    {
-        Task<ApplicationUser> FindUser(string userName, string password);
-        Task<IdentityUser> FindAsync(UserLoginInfo loginInfo);
-        Task<IdentityResult> CreateAsync(ApplicationUser user);
-        Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login);
-    }
-
     public class AuthRepository : IDisposable, IAuthRepository
     {
         private readonly AuthContext _ctx;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
         public AuthRepository()
         {
             _ctx = new AuthContext();
-            _userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_ctx));
+            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
         }
 
-        public async Task<ApplicationUser> FindUser(string userName, string password)
+        public async Task<IdentityUser> FindUser(string userName, string password)
         {
             var user = await _userManager.FindAsync(userName, password);
             return user;
@@ -39,7 +32,7 @@ namespace GreenField.Users.Data
             return user;
         }
 
-        public async Task<IdentityResult> CreateAsync(ApplicationUser user)
+        public async Task<IdentityResult> CreateAsync(IdentityUser user)
         {
             var result = await _userManager.CreateAsync(user);
 
@@ -51,6 +44,25 @@ namespace GreenField.Users.Data
             var result = await _userManager.AddLoginAsync(userId, login);
 
             return result;
+        }
+
+        public async Task<IdentityResult> RegisterUser(UserModel userModel)
+        {
+            var user = new ApplicationUser
+            {
+                UserName = userModel.UserName
+            };
+
+            var result = await _userManager.CreateAsync(user, userModel.Password);
+
+            return result;
+        }
+
+        public Client FindClient(string clientId)
+        {
+            var client = _ctx.Clients.Find(clientId);
+
+            return client;
         }
 
         public void Dispose()
