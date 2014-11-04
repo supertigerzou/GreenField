@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace GreenField.Framework.Data.DomainModels
 {
     public class Person : BaseEntity
@@ -7,6 +9,6 @@ namespace GreenField.Framework.Data.DomainModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         
-        public ApplicationUser LoginUser { get; set; }
+        public IdentityUser LoginUser { get; set; }
     }
 }

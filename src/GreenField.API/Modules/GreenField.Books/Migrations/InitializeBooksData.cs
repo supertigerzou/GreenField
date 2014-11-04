@@ -2,9 +2,11 @@
 using GreenField.Books.Data.DomainModels;
 using GreenField.Framework.Data.DomainModels;
 using GreenField.Framework.Helpers;
+using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GreenField.Books.Migrations
 {
@@ -15,12 +17,12 @@ namespace GreenField.Books.Migrations
             var webHelper = new WebHelper();
 
             //  Use the DbSet<T>.AddOrUpdate() helper extension method to avoid creating duplicate seed data.
-            var loginUserVictor = new ApplicationUser
+            var loginUserVictor = new IdentityUser
             {
                 UserName = "victor.zou",
                 PasswordHash = "ADWj64qPNVxOr988AtL7WKaHKkOYSP9LFWUQniZIRxnXFaNJHELTF4kp+FtTnrYe6Q=="
             };
-            var loginUserUnique = new ApplicationUser
+            var loginUserUnique = new IdentityUser
             {
                 UserName = "unique.lin",
                 PasswordHash = "ADWj64qPNVxOr988AtL7WKaHKkOYSP9LFWUQniZIRxnXFaNJHELTF4kp+FtTnrYe6Q=="
@@ -500,6 +502,37 @@ namespace GreenField.Books.Migrations
                 authorPictureMapping1, authorPictureMapping2, authorPictureMapping3,
                 authorPictureMapping4, authorPictureMapping5
                 );
+            context.SaveChanges();
+
+            context.Clients.AddRange(BuildClientsList());
+        }
+
+        private static IEnumerable<Client> BuildClientsList()
+        {
+
+            var clientList = new List<Client> 
+            {
+                new Client
+                { Id = "ngGreenField", 
+                    Secret= SecurityHelper.GetHash("abc@123"), 
+                    Name="AngularJS front-end Application", 
+                    ApplicationType = ApplicationTypes.JavaScript, 
+                    Active = true, 
+                    RefreshTokenLifeTime = 7200, 
+                    AllowedOrigin = "http://localhost:55854"
+                },
+                new Client
+                { Id = "consoleApp", 
+                    Secret=SecurityHelper.GetHash("123@abc"), 
+                    Name="Console Application", 
+                    ApplicationType = ApplicationTypes.NativeConfidential, 
+                    Active = true, 
+                    RefreshTokenLifeTime = 14400, 
+                    AllowedOrigin = "*"
+                }
+            };
+
+            return clientList;
         }
     }
 }

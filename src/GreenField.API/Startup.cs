@@ -10,6 +10,7 @@ using GreenField.Framework.Data;
 using GreenField.Framework.Helpers;
 using GreenField.Framework.Services;
 using GreenField.Users.Data;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Microsoft.Owin.Security.Google;
@@ -29,6 +30,8 @@ namespace GreenField.API
 
         public void Configuration(IAppBuilder app)
         {
+            ConfigureOAuth(app);
+
             var config = new HttpConfiguration();
             var builder = new ContainerBuilder();
 
@@ -39,7 +42,7 @@ namespace GreenField.API
             builder.Register(c => new WebHelper()).As<IWebHelper>().InstancePerRequest();
             builder.Register(c => new BookContext()).As<IDbContext>().InstancePerRequest();
             builder.RegisterType<AuthRepository>().As<IAuthRepository>().InstancePerRequest();
-            builder.RegisterGeneric(typeof (EfRepository<>)).As(typeof (IRepository<>)).InstancePerRequest();
+            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerRequest();
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().SingleInstance();
             builder.RegisterType<AuthorService>().As<IAuthorService>().InstancePerRequest();
             builder.RegisterType<BookService>().As<IBookService>().InstancePerRequest();
@@ -53,8 +56,6 @@ namespace GreenField.API
 
             // Create an assign a dependency resolver for Web API to use.
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
-
-            ConfigureOAuth(app);
 
             // This should be the first middleware added to the IAppBuilder.
             app.UseAutofacMiddleware(container);
@@ -70,6 +71,9 @@ namespace GreenField.API
 
         private void ConfigureOAuth(IAppBuilder app)
         {
+            //use a cookie to temporarily store information about a user logging in with a third party login provider
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
             var options = new OAuthAuthorizationServerOptions
                 {
                     AllowInsecureHttp = true,
@@ -85,10 +89,10 @@ namespace GreenField.API
             //Configure Google External Login
             GoogleAuthOptions = new GoogleOAuth2AuthenticationOptions
                 {
-                ClientId = "674805668859-gdbb5tsqglgn5dbsibqnkkuvmeu0qskd.apps.googleusercontent.com",
-                ClientSecret = "HdD4ZAQBtlT4YM7-i2Y1n9Zb",
-                Provider = new GoogleAuthProvider()
-            };
+                    ClientId = "671830126309-drlernfdnh6n09oavvqlkv9rpk98p45k.apps.googleusercontent.com",
+                    ClientSecret = "FAA0hz8ssyL4x4Hawsf-HbRH",
+                    Provider = new GoogleAuthProvider()
+                };
             app.UseGoogleAuthentication(GoogleAuthOptions);
         }
     }

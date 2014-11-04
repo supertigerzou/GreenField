@@ -48,7 +48,7 @@ namespace GreenField.Users.Data
 
         public async Task<IdentityResult> RegisterUser(UserModel userModel)
         {
-            var user = new ApplicationUser
+            var user = new IdentityUser
             {
                 UserName = userModel.UserName
             };

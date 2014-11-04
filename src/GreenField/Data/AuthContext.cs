@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace GreenField.Framework.Data
 {
-    public class AuthContext : IdentityDbContext<ApplicationUser>
+    public class AuthContext : IdentityDbContext<IdentityUser>
     {
         public AuthContext()
             : base("GreenField")

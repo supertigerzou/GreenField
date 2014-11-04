@@ -78,9 +78,9 @@
     <Compile Include="Data\DomainModels\AuthorEntityPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookEntityPictureMap.cs" />
     <Compile Include="Data\DomainModels\BookMap.cs" />
-    <Compile Include="Migrations\201410200722418_init.cs" />
-    <Compile Include="Migrations\201410200722418_init.Designer.cs">
-      <DependentUpon>201410200722418_init.cs</DependentUpon>
+    <Compile Include="Migrations\201411040757581_init.cs" />
+    <Compile Include="Migrations\201411040757581_init.Designer.cs">
+      <DependentUpon>201411040757581_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\InitializeBooksData.cs" />
@@ -214,8 +214,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201410200722418_init.resx">
-      <DependentUpon>201410200722418_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201411040757581_init.resx">
+      <DependentUpon>201411040757581_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
